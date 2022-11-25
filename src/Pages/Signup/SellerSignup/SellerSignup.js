@@ -1,34 +1,39 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 import { FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const SellerSignup = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const { createUserSeller, updateSeller } = useContext(AuthContext);
+    const [signUpError, setSignUpError] = useState('');
 
     const handleSignUp = (data) => {
         console.log(data);
-        // setSignUpError('');
-        // console.log(errors);
-        // createUser(data.email, data.password)
-        //     .then(result => {
-        //         const user = result.user;
-        //         console.log(user);
-        //         toast('User Created Successfully')
-        //         const userInfo = {
-        //             displayName: data.name
-        //         }
-        //         updateUser(userInfo)
-        //             .then(() => {
-        //                 // navigate('/');
-        //                 saveUser(data.name, data.email);
-        //             })
-        //             .catch(err => console.error(err))
-        //     })
-        //     .catch(error => {
-        //         console.error(error)
-        //         setSignUpError(error.message)
-        //     });
+        setSignUpError('');
+        console.log(errors);
+        createUserSeller(data.email, data.password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                toast('User Created Successfully')
+                const userInfo = {
+                    displayName: data.name,
+                    photoUrl: data.photoUrl
+                }
+                updateSeller(userInfo)
+                    .then(() => {
+                        // navigate('/');
+                        // saveUser(data.name, data.email);
+                    })
+                    .catch(err => console.error(err))
+            })
+            .catch(error => {
+                console.error(error)
+                setSignUpError(error.message)
+            });
     }
 
 
@@ -70,6 +75,7 @@ const SellerSignup = () => {
 
                         </div>
                         <input className='btn btn-accent w-full mt-5' value='Signup' type="submit" />
+                        {signUpError && <p className='text-red-600'>{signUpError}</p>}
                     </form>
 
                     <p>Already have an account?<Link className='text-secondary ml-1' to='/sellerLogin'>Please Login</Link></p>

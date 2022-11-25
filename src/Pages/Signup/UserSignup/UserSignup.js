@@ -1,34 +1,43 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 import { FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import SocialLogin from '../../shared/SocialLogin/SocialLogin';
 
 const UserSignup = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const { createUserBuyer, updateUser } = useContext(AuthContext);
+    const [signUpError, setSignUpError] = useState('');
 
     const handleSignUp = (data) => {
         console.log(data);
-        // setSignUpError('');
-        // console.log(errors);
-        // createUser(data.email, data.password)
-        //     .then(result => {
-        //         const user = result.user;
-        //         console.log(user);
-        //         toast('User Created Successfully')
-        //         const userInfo = {
-        //             displayName: data.name
-        //         }
-        //         updateUser(userInfo)
-        //             .then(() => {
-        //                 // navigate('/');
-        //                 saveUser(data.name, data.email);
-        //             })
-        //             .catch(err => console.error(err))
-        //     })
-        //     .catch(error => {
-        //         console.error(error)
-        //         setSignUpError(error.message)
-        //     });
+        setSignUpError('');
+        console.log(errors);
+
+        createUserBuyer(data.email, data.password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+
+                toast('User Created Successfully')
+                const userInfo = {
+                    displayName: data.name,
+                    photoUrl: data.photoUrl
+                }
+                updateUser(userInfo)
+                    .then(() => {
+                        // navigate('/');
+                        // saveUser(data.name, data.email);
+                    })
+                    .catch(err => console.error(err))
+
+            })
+            .catch(error => {
+                console.error(error)
+                setSignUpError(error.message)
+            });
     }
 
 
@@ -70,11 +79,12 @@ const UserSignup = () => {
 
                         </div>
                         <input className='btn btn-accent w-full mt-5' value='Signup' type="submit" />
+                        {signUpError && <p className='text-red-600'>{signUpError}</p>}
                     </form>
 
                     <p>Already have an account?<Link className='text-secondary ml-1' to='/userLogin'>Please Login</Link></p>
                     <div className='divider'>OR</div>
-                    <button className='btn btn-outline w-full gap-2'>CONTINUE WITH <FaGoogle /></button>
+                    <SocialLogin />
                 </div>
             </div>
         </div>

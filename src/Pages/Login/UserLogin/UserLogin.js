@@ -1,12 +1,29 @@
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { FaGoogle } from 'react-icons/fa';
+import { useContext, useState } from 'react';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import SocialLogin from '../../shared/SocialLogin/SocialLogin';
 
 const UserLogin = () => {
     const { handleSubmit, formState: { errors }, register } = useForm();
+    const { signInUser } = useContext(AuthContext);
+    const [loginError, setLoginError] = useState('');
 
     const handleLogin = data => {
         console.log(data);
+        setLoginError('');
+        signInUser(data.email, data.password)
+            .then(result => {
+                const user = result.user
+                console.log(user);
+                // setLoginUserEmail(data.email);
+                // navigate(from, { replace: true });
+            })
+            .catch(error => {
+                console.error(error.message);
+                setLoginError(error.message);
+            })
     }
     return (
         <div>
@@ -34,11 +51,16 @@ const UserLogin = () => {
 
 
                         <input className='btn btn-accent w-full' value='Login' type="submit" />
+                        <div>
+                            {
+                                loginError && <p className='text-red-600'>{loginError}</p>
+                            }
+                        </div>
                     </form>
 
                     <p>New to exDesktop Accessories<Link className='text-secondary ml-1' to='/userSignup'>Create new account</Link></p>
                     <div className='divider'>OR</div>
-                    <button className='btn btn-outline w-full gap-2'>CONTINUE WITH <FaGoogle /></button>
+                    <SocialLogin />
                 </div>
             </div>
         </div>
