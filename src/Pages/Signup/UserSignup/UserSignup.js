@@ -24,7 +24,7 @@ const UserSignup = () => {
                 toast('User Created Successfully')
                 const userInfo = {
                     displayName: data.name,
-                    photoUrl: data.photoUrl
+                    photoURL: data.photoURL
                 }
                 updateUser(userInfo)
                     .then(() => {
@@ -56,8 +56,8 @@ const UserSignup = () => {
                         </div>
 
                         <div className="form-control w-full max-w-xs">
-                            <label className="label"> <span className="label-text">PhotoUrl</span> </label>
-                            <input {...register("photoUrl")} type="text" className="input input-bordered w-full max-w-xs" />
+                            <label className="label"> <span className="label-text">PhotoURL</span> </label>
+                            <input {...register("photoURL")} type="text" className="input input-bordered w-full max-w-xs" />
                         </div>
 
                         <div className="form-control w-full max-w-xs">

@@ -14,13 +14,13 @@ const NavigationBar = () => {
     const menuItems = <>
         {
             user?.uid ?
-                <li className='flex'>
-                    <p className=' text-black'>{user?.displayName}</p>
-
-                    <span className='mr-4'> {
-                        user?.photoURL ?
-                            <img className='h-12 rounded-3xl' src={user?.photoURL} alt='' /> : <FaUser />
-                    }</span>
+                <li>
+                    <li className="tooltip tooltip-open tooltip-bottom flex" data-tip={user?.displayName}>
+                        <span> {
+                            user?.photoURL ?
+                                <img className='h-11 rounded-3xl' src={user?.photoURL} alt='' /> : <FaUser />
+                        }</span>
+                    </li>
                     <li><button onClick={handleLogout}>Sign Out</button></li>
                 </li>
                 :
@@ -40,9 +40,11 @@ const NavigationBar = () => {
 
     return (
         <div className="navbar bg-accent border-secondary text-white sticky">
-            <div className="flex-1">
-                <Link to='/' ><span className="btn btn-ghost normal-case text-4xl text-white">exDesktop Accessories </span> </Link>
-                {/* <span className='text-blue-600 pl-6'> <br /> Resale Products</span> */}
+            <div className="flex-1 lg: ml-24 flex-wrap">
+                <div>
+                    <span className="normal-case text-4xl text-white"> <Link to='/' >exDesktop Accessories </Link></span> <br />
+                    <span className='text-blue-600'> <br />Resale Desktop Parts</span>
+                </div>
             </div>
             <div className="flex-none">
                 <ul className="menu menu-horizontal p-0">
