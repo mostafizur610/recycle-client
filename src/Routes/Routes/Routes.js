@@ -3,6 +3,10 @@ import notFound from '../../assets/not found/not found.webp'
 import Main from "../../Layout/Main/Main"
 import Blogs from "../../Pages/Blogs/Blogs"
 import Home from "../../Pages/Home/Home/Home"
+import SellerLogin from "../../Pages/Login/SellerLogin/SellerLogin"
+import UserLogin from "../../Pages/Login/UserLogin/UserLogin"
+import SellerSignup from "../../Pages/Signup/SellerSignup/SellerSignup"
+import UserSignup from "../../Pages/Signup/UserSignup/UserSignup"
 
 const router = createBrowserRouter([
     {
@@ -16,10 +20,28 @@ const router = createBrowserRouter([
             {
                 path: '/blogs',
                 element: <Blogs></Blogs>
+            },
+            {
+                path: '/userLogin',
+                element: <UserLogin></UserLogin>
+            },
+            {
+                path: '/userSignup',
+                element: <UserSignup></UserSignup>
+            },
+            {
+                path: '/sellerLogin',
+                element: <SellerLogin></SellerLogin>
+            },
+            {
+                path: '/sellerSignup',
+                element: <SellerSignup></SellerSignup>
             }
 
         ]
     },
+
+    // 404 route
     {
         path: '*',
         element: <div><img className="w-full h-96" src={notFound} alt="" />
