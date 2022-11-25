@@ -4,7 +4,8 @@ import faq4 from '../../assets/faq/q4.png'
 
 const Blogs = () => {
     return (
-        <div className='rounded-xl'>
+        <div className='rounded-xl bg-orange-100'>
+            <h1 className='text-3xl text-center mt-8 pt-5'>Frequent Asked Question!!!</h1>
             <div className="collapse px-12 pt-12">
                 <input type="checkbox" className="peer" />
                 <div className="collapse-title bg-success text-white text-xl">

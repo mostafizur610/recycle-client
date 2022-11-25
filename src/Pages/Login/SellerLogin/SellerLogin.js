@@ -49,7 +49,7 @@ const SellerLogin = () => {
                         </div>
 
 
-                        <input className='btn btn-accent w-full' value='Login' type="submit" />
+                        <input className='btn btn-accent w-full text-white' value='Login' type="submit" />
                         <div>
                             {
                                 loginError && <p className='text-red-600'>{loginError}</p>
