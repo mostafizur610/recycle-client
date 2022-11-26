@@ -8,6 +8,7 @@ import SellerLogin from "../../Pages/Login/SellerLogin/SellerLogin"
 import UserLogin from "../../Pages/Login/UserLogin/UserLogin"
 import SellerSignup from "../../Pages/Signup/SellerSignup/SellerSignup"
 import UserSignup from "../../Pages/Signup/UserSignup/UserSignup"
+import PrivateRoutes from "../PrivateRoutes/PrivateRoutes"
 
 const router = createBrowserRouter([
     {
@@ -43,7 +44,7 @@ const router = createBrowserRouter([
     },
     {
         path: '/dashboard',
-        element: <Dashboard></Dashboard>
+        element: <PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>
     },
 
     // 404 route

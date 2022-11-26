@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-import { FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+// import { FaGoogle } from 'react-icons/fa';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import SocialLogin from '../../shared/SocialLogin/SocialLogin';
 
@@ -10,6 +10,7 @@ const UserSignup = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const { createUserBuyer, updateUser } = useContext(AuthContext);
     const [signUpError, setSignUpError] = useState('');
+    const navigate = useNavigate();
 
     const handleSignUp = (data) => {
         console.log(data);
@@ -28,7 +29,7 @@ const UserSignup = () => {
                 }
                 updateUser(userInfo)
                     .then(() => {
-                        // navigate('/');
+                        navigate('/');
                         // saveUser(data.name, data.email);
                     })
                     .catch(err => console.error(err))

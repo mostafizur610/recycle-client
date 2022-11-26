@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
-import { FaGoogle } from 'react-icons/fa';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+// import { FaGoogle } from 'react-icons/fa';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import SocialLogin from '../../shared/SocialLogin/SocialLogin';
@@ -9,6 +9,12 @@ const UserLogin = () => {
     const { handleSubmit, formState: { errors }, register, reset } = useForm();
     const { signInUser } = useContext(AuthContext);
     const [loginError, setLoginError] = useState('');
+
+    // redirect
+    const location = useLocation();
+    const navigate = useNavigate();
+    console.log(location);
+    const from = location.state?.from?.pathname || '/';
 
     const handleLogin = data => {
         console.log(data);
@@ -19,7 +25,7 @@ const UserLogin = () => {
                 console.log(user);
                 reset();
                 // setLoginUserEmail(data.email);
-                // navigate(from, { replace: true });
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.error(error.message);
