@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom"
 import notFound from '../../assets/not found/not found.webp'
 import Main from "../../Layout/Main/Main"
 import Blogs from "../../Pages/Blogs/Blogs"
+import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard"
 import Home from "../../Pages/Home/Home/Home"
 import SellerLogin from "../../Pages/Login/SellerLogin/SellerLogin"
 import UserLogin from "../../Pages/Login/UserLogin/UserLogin"
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
             }
 
         ]
+    },
+    {
+        path: '/dashboard',
+        element: <Dashboard></Dashboard>
     },
 
     // 404 route

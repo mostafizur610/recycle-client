@@ -15,6 +15,7 @@ const NavigationBar = () => {
         {
             user?.uid ?
                 <li>
+                    <Link to='/dashboard'>Dashboard</Link>
                     <li className="tooltip tooltip-open tooltip-bottom flex" data-tip={user?.displayName}>
                         <span> {
                             user?.photoURL ?
