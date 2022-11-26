@@ -5,7 +5,7 @@ import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 // import { FaGoogle } from 'react-icons/fa';
 
 const SellerLogin = () => {
-    const { handleSubmit, formState: { errors }, register } = useForm();
+    const { handleSubmit, formState: { errors }, register, reset } = useForm();
     const { signInSeller } = useContext(AuthContext);
     const [loginError, setLoginError] = useState('');
 
@@ -16,6 +16,7 @@ const SellerLogin = () => {
             .then(result => {
                 const user = result.user
                 console.log(user);
+                reset();
                 // setLoginUserEmail(data.email);
                 // navigate(from, { replace: true });
             })

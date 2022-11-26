@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const SellerSignup = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const { createUserSeller, updateSeller } = useContext(AuthContext);
     const [signUpError, setSignUpError] = useState('');
 
@@ -18,6 +18,7 @@ const SellerSignup = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                reset();
                 toast('User Created Successfully')
                 const userInfo = {
                     displayName: data.name,

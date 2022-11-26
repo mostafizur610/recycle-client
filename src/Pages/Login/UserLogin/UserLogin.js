@@ -6,7 +6,7 @@ import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import SocialLogin from '../../shared/SocialLogin/SocialLogin';
 
 const UserLogin = () => {
-    const { handleSubmit, formState: { errors }, register } = useForm();
+    const { handleSubmit, formState: { errors }, register, reset } = useForm();
     const { signInUser } = useContext(AuthContext);
     const [loginError, setLoginError] = useState('');
 
@@ -17,6 +17,7 @@ const UserLogin = () => {
             .then(result => {
                 const user = result.user
                 console.log(user);
+                reset();
                 // setLoginUserEmail(data.email);
                 // navigate(from, { replace: true });
             })

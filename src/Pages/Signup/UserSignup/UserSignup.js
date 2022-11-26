@@ -7,7 +7,7 @@ import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import SocialLogin from '../../shared/SocialLogin/SocialLogin';
 
 const UserSignup = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const { createUserBuyer, updateUser } = useContext(AuthContext);
     const [signUpError, setSignUpError] = useState('');
 
@@ -20,7 +20,7 @@ const UserSignup = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-
+                reset();
                 toast('User Created Successfully')
                 const userInfo = {
                     displayName: data.name,
