@@ -1,9 +1,10 @@
-<h1>Website Name</h1>
+<h2>Website Name</h2>
 <h4>Recycle</h4>
 
 ## Live site
 url: 
 
+## Uses Topics
 <ul>
 <li>React component</li>
 <li>React router</li>
