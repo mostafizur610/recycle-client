@@ -4,6 +4,7 @@ import Main from "../../Layout/Main/Main"
 import Blogs from "../../Pages/Blogs/Blogs"
 import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard"
 import Home from "../../Pages/Home/Home/Home"
+import Login from "../../Pages/Login/Login/Login"
 import SellerLogin from "../../Pages/Login/SellerLogin/SellerLogin"
 import UserLogin from "../../Pages/Login/UserLogin/UserLogin"
 import SellerSignup from "../../Pages/Signup/SellerSignup/SellerSignup"
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
             {
                 path: '/blogs',
                 element: <Blogs></Blogs>
+            },
+            {
+                path: '/login',
+                element: <Login></Login>
             },
             {
                 path: '/userLogin',

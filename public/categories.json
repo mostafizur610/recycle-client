@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "name": "Asus",
+        "img": "https://i.ibb.co/2SmW0BY/image.png"
+    },
+    {
+        "id": 2,
+        "name": "Samsung",
+        "img": "https://i.ibb.co/8mSWVCV/image.png"
+    },
+    {
+        "id": 3,
+        "name": "Gigabite",
+        "img": "https://i.ibb.co/C5r2D0N/image.png"
+    },
+    {
+        "id": 4,
+        "name": "Intel",
+        "img": "https://i.ibb.co/yPqtDjH/image.png"
+    }
+]
