@@ -1,8 +1,17 @@
 import { createBrowserRouter } from "react-router-dom"
 import notFound from '../../assets/not found/not found.webp'
+import DashboardLayout from "../../Layout/DashboardLayout/DashboardLayout"
 import Main from "../../Layout/Main/Main"
 import Blogs from "../../Pages/Blogs/Blogs"
-import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard"
+import AddProducts from "../../Pages/Dashboard/AddProducts/AddProducts"
+import AllSellers from "../../Pages/Dashboard/AllSellers/AllSellers"
+import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers"
+import MyBuyers from "../../Pages/Dashboard/MyBuyers/MyBuyers"
+import MyOrders from "../../Pages/Dashboard/MyOrders/MyOrders"
+import MyProducts from "../../Pages/Dashboard/MyProducts/MyProducts"
+import MyWishlist from "../../Pages/Dashboard/MyWishlist/MyWishlist"
+import ReportedItems from "../../Pages/Dashboard/ReportedItems/ReportedItems"
+// import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard"
 import Home from "../../Pages/Home/Home/Home"
 import Login from "../../Pages/Login/Login/Login"
 import SellerLogin from "../../Pages/Login/SellerLogin/SellerLogin"
@@ -49,8 +58,48 @@ const router = createBrowserRouter([
     },
     {
         path: '/dashboard',
-        element: <PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>
+        element: <PrivateRoutes><DashboardLayout></DashboardLayout></PrivateRoutes>,
+        children: [
+            // buyers
+            {
+                path: '/dashboard/myOrders',
+                element: <MyOrders></MyOrders>
+            },
+            {
+                path: '/dashboard/myWishlist',
+                element: <MyWishlist></MyWishlist>
+            },
+            // sellers
+            {
+                path: '/dashboard/addProducts',
+                element: <AddProducts></AddProducts>
+            },
+            {
+                path: '/dashboard/myProducts',
+                element: <MyProducts></MyProducts>
+            },
+            {
+                path: '/dashboard/myBuyers',
+                element: <MyBuyers></MyBuyers>
+            },
+            // admin
+            {
+                path: '/dashboard/allUsers',
+                element: <AllUsers></AllUsers>
+            },
+            {
+                path: '/dashboard/allSellers',
+                element: <AllSellers></AllSellers>
+            },
+            {
+                path: '/dashboard/reportedItems',
+                element: <ReportedItems></ReportedItems>
+            }
+        ]
     },
+
+
+
 
     // 404 route
     {
