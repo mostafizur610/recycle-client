@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useTitle from '../../../Hooks/useTitle';
 
 const Login = () => {
+    useTitle('Login');
     return (
         <div className='flex flex-wrap text-center justify-center my-32 gap-4'>
             <div className="form-control">

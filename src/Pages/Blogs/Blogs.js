@@ -1,8 +1,10 @@
 import React from 'react';
 import faq2 from '../../assets/faq/q2.png'
 import faq4 from '../../assets/faq/q4.png'
+import useTitle from '../../Hooks/useTitle';
 
 const Blogs = () => {
+    useTitle('Blogs');
     return (
         <div className='rounded-xl bg-orange-100'>
             <h1 className='text-3xl text-center mt-8 pt-5'>Frequent Asked Question!!!</h1>

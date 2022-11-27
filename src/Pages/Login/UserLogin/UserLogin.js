@@ -4,8 +4,10 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import SocialLogin from '../../shared/SocialLogin/SocialLogin';
+import useTitle from '../../../Hooks/useTitle';
 
 const UserLogin = () => {
+    useTitle('UserLogin');
     const { handleSubmit, formState: { errors }, register, reset } = useForm();
     const { signInUser } = useContext(AuthContext);
     const [loginError, setLoginError] = useState('');

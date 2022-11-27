@@ -4,9 +4,11 @@ import toast from 'react-hot-toast';
 // import { FaGoogle } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import useTitle from '../../../Hooks/useTitle';
 import SocialLogin from '../../shared/SocialLogin/SocialLogin';
 
 const UserSignup = () => {
+    useTitle('UserSignup');
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const { createUserBuyer, updateUser } = useContext(AuthContext);
     const [signUpError, setSignUpError] = useState('');

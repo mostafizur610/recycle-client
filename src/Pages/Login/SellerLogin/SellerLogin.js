@@ -2,9 +2,11 @@ import { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import useTitle from '../../../Hooks/useTitle';
 // import { FaGoogle } from 'react-icons/fa';
 
 const SellerLogin = () => {
+    useTitle('SellersLogin');
     const { handleSubmit, formState: { errors }, register, reset } = useForm();
     const { signInSeller } = useContext(AuthContext);
     const [loginError, setLoginError] = useState('');

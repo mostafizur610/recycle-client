@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import img from '../../../assets/n.png'
 
 const NavigationBar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -42,10 +43,10 @@ const NavigationBar = () => {
     return (
         <div className="navbar bg-accent border-secondary text-white sticky">
             <div className="flex-1 lg: ml-24 flex-wrap">
-                <div>
-                    <span className="normal-case text-4xl text-white"> <Link to='/' >exDesktop Accessories </Link></span> <br />
-                    <span className='text-blue-600'> <br />Resale Desktop Parts</span>
-                </div>
+                {/* <div> */}
+                <span className="normal-case text-4xl text-white"> <Link to='/' ><img className='w-48 h-24' src={img} alt="" /></Link></span> <br />
+                <span className='text-blue-600'> <br />Resale Desktop Accessories</span>
+                {/* </div> */}
             </div>
             <div className="flex-none">
                 <ul className="menu menu-horizontal p-0">
