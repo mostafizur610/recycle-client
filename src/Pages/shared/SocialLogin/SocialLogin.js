@@ -1,3 +1,4 @@
+import { data } from 'autoprefixer';
 import React, { useContext } from 'react';
 import { FaGoogle } from 'react-icons/fa';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -17,7 +18,23 @@ const SocialLogin = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                navigate(from, { replace: true });
+                const userData = {
+                    name: user.displayName,
+                    email: user.email,
+                    role: 'user'
+                }
+                fetch('http://localhost:5000/google', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(userData)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        localStorage.setItem('user', JSON.stringify(data));
+                        navigate(from, { replace: true });
+                    })
             })
             .catch(error => console.error(error))
     }

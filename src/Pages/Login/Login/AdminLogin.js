@@ -18,23 +18,11 @@ const AdminLogin = () => {
     const from = location.state?.from?.pathname || '/';
 
     const handleLogin = data => {
-        console.log(data);
         setLoginError('');
-        signInSeller(data.email, data.password)
-            .then(result => {
-                const user = result.user
-                console.log(user);
-                reset();
-                loginUser(user.email);
-                // setLoginUserEmail(data.email);
-            })
-            .catch(error => {
-                console.error(error.message);
-                setLoginError(error.message);
-            })
+        loginUser(data.email, data.password);
     }
 
-    const loginUser = async (email) => {
+    const loginUser = async (email, password) => {
         const role = location.pathname.match('admin') ? 'admin' : '';
         const user = { email, role };
         console.log(user);
@@ -47,13 +35,18 @@ const AdminLogin = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log('data', data);
-                navigate(from, { replace: true });
-                // setCreatedUserEmail(data.email);
-
+                signInSeller(email, password)
+                    .then(result => {
+                        reset();
+                        localStorage.setItem('user', JSON.stringify(data));
+                        navigate(from, { replace: true });
+                    })
+                    .catch(error => {
+                        console.error(error.message);
+                        setLoginError(error.message);
+                    })
             })
             .catch(error => {
-                // console.log(error);
                 setLoginError('User not found')
             })
     }
