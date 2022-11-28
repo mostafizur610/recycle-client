@@ -11,6 +11,7 @@ import MyOrders from "../../Pages/Dashboard/MyOrders/MyOrders"
 import MyProducts from "../../Pages/Dashboard/MyProducts/MyProducts"
 import MyWishlist from "../../Pages/Dashboard/MyWishlist/MyWishlist"
 import ReportedItems from "../../Pages/Dashboard/ReportedItems/ReportedItems"
+import CategoriesDetails from "../../Pages/Home/Categories/CategoriesDetails"
 // import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard"
 import Home from "../../Pages/Home/Home/Home"
 import AdminLogin from "../../Pages/Login/Login/AdminLogin"
@@ -19,7 +20,9 @@ import SellerLogin from "../../Pages/Login/SellerLogin/SellerLogin"
 import UserLogin from "../../Pages/Login/UserLogin/UserLogin"
 import SellerSignup from "../../Pages/Signup/SellerSignup/SellerSignup"
 import UserSignup from "../../Pages/Signup/UserSignup/UserSignup"
-import PrivateRoutes from "../PrivateRoutes/PrivateRoutes"
+import AdminRoute from "../PrivateRoutes/AdminRoute"
+import SellerPrivateRoutes from "../PrivateRoutes/SellerPrivateRoute"
+import UserPrivateRoutes from "../PrivateRoutes/UserPrivateRoutes"
 
 const router = createBrowserRouter([
     {
@@ -31,7 +34,16 @@ const router = createBrowserRouter([
                 element: <Home></Home>
             },
             {
+                path: '/category/:id',
+                element: <CategoriesDetails></CategoriesDetails>,
+                loader: ({ params }) => {
+                    console.log(params);
+                    fetch(`http://localhost:5000/category/${params.id}`)
+                }
+            },
+            {
                 path: '/blogs',
+
                 element: <Blogs></Blogs>
             },
             {
@@ -63,12 +75,12 @@ const router = createBrowserRouter([
     },
     {
         path: '/dashboard',
-        element: <PrivateRoutes><DashboardLayout></DashboardLayout></PrivateRoutes>,
+        element: <DashboardLayout></DashboardLayout>,
         children: [
             // buyers
             {
                 path: '/dashboard/myOrders',
-                element: <MyOrders></MyOrders>
+                element: <UserPrivateRoutes><MyOrders></MyOrders></UserPrivateRoutes>
             },
             {
                 path: '/dashboard/myWishlist',
@@ -77,28 +89,28 @@ const router = createBrowserRouter([
             // sellers
             {
                 path: '/dashboard/addProducts',
-                element: <AddProducts></AddProducts>
+                element: <SellerPrivateRoutes><AddProducts></AddProducts></SellerPrivateRoutes>
             },
             {
                 path: '/dashboard/myProducts',
-                element: <MyProducts></MyProducts>
+                element: <SellerPrivateRoutes><MyProducts></MyProducts></SellerPrivateRoutes>
             },
             {
                 path: '/dashboard/myBuyers',
-                element: <MyBuyers></MyBuyers>
+                element: <SellerPrivateRoutes></SellerPrivateRoutes>
             },
             // admin
             {
                 path: '/dashboard/allUsers',
-                element: <AllUsers></AllUsers>
+                element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
             },
             {
                 path: '/dashboard/allSellers',
-                element: <AllSellers></AllSellers>
+                element: <AdminRoute><AllSellers></AllSellers></AdminRoute>
             },
             {
                 path: '/dashboard/reportedItems',
-                element: <ReportedItems></ReportedItems>
+                element: <AdminRoute><ReportedItems></ReportedItems></AdminRoute>
             }
         ]
     },

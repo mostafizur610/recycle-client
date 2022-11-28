@@ -34,12 +34,11 @@ const SellerLogin = () => {
         })
             .then(res => res.json())
             .then(data => {
-                navigate(from, { replace: true });
                 signInSeller(email, password)
                     .then(result => {
-                        const user = result.user
                         reset();
-                        loginUser(user.email);
+                        localStorage.setItem('user', JSON.stringify(data));
+                        navigate(from, { replace: true });
                     })
                     .catch(error => {
                         setLoginError(error.message);

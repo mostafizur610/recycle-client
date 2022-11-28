@@ -7,6 +7,7 @@ import img from '../../../assets/n.png'
 const NavigationBar = () => {
     const { user, logOut } = useContext(AuthContext);
     const handleLogout = () => {
+        localStorage.removeItem('user');
         logOut()
             .then(() => { })
             .catch(err => console.error(err))

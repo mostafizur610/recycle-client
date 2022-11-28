@@ -1,18 +1,12 @@
 import React, { useContext } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
-import useAdmin from '../../Hooks/useAdmin';
-// import { AuthContext } from '../../contexts/AuthProvider';
-// import useAdmin from '../../hooks/useAdmin';
 import Loading from '../../Pages/shared/Loading/Loading';
-// import Loading from '../../Pages/Shared/Loading/Loading';
 
-const AdminRoute = ({ children }) => {
+const SellerPrivateRoutes = ({ children }) => {
     const { user, loading, logOut } = useContext(AuthContext);
-    const [isAdmin, isAdminLoading] = useAdmin(user?.email);
     const location = useLocation();
-
-    if (loading || isAdminLoading) {
+    if (loading) {
         return <Loading></Loading>
     }
 
@@ -20,12 +14,12 @@ const AdminRoute = ({ children }) => {
     const localStorageData = localStorage.getItem('user');
     if (localStorageData) {
         currentUser = JSON.parse(localStorageData);
-        if (user.email === currentUser.email && currentUser.role === 'admin') {
+        if (user.email === currentUser.email && currentUser.role === 'seller') {
             return children;
         }
     }
     logOut();
-    return <Navigate to="/adminLogin" state={{ from: location }} replace></Navigate>;
+    return <Navigate to='/userLogin' state={{ from: location }} replace></Navigate>;
 };
 
-export default AdminRoute;
+export default SellerPrivateRoutes;

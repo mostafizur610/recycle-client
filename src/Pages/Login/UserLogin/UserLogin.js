@@ -19,7 +19,6 @@ const UserLogin = () => {
     const from = location.state?.from?.pathname || '/';
 
     const handleLogin = data => {
-        console.log(data);
         setLoginError('');
         loginUser(data.email, data.password);
     }
@@ -37,25 +36,15 @@ const UserLogin = () => {
         })
             .then(res => res.json())
             .then(data => {
-                // console.log('data', data);
-                navigate(from, { replace: true });
-                // setCreatedUserEmail(data.email);
-                // setCurrentUser();
-
                 signInUser(email, password)
                     .then(result => {
-                        const user = result.user
-                        console.log(user);
                         reset();
-                        loginUser(user.email)
-                        // setLoginUserEmail(data.email);
-                        // navigate(from, { replace: true });
+                        localStorage.setItem('user', JSON.stringify(data));
+                        navigate(from, { replace: true });
                     })
                     .catch(error => {
-                        // console.error(error.message);
                         setLoginError(error.message);
                     })
-
             })
             .catch(error => {
                 setLoginError('User not found')
