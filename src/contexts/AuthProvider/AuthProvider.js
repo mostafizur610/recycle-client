@@ -7,6 +7,7 @@ const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
+    // const [authUser, setAuthUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const googleProvider = new GoogleAuthProvider();
 
@@ -40,6 +41,10 @@ const AuthProvider = ({ children }) => {
         return updateProfile(auth.currentUser, sellerInfo);
     }
 
+    // const setCurrentUser = () => {
+    //     return setUser(authUser);
+    // }
+
     const logOut = () => {
         setLoading(true);
         return signOut(auth);
@@ -48,7 +53,10 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             console.log('user observing');
+            console.log(currentUser);
             setUser(currentUser);
+            // setAuthUser(currentUser);
+            // authUser = currentUser;
             setLoading(false);
         });
         return () => unsubscribe();

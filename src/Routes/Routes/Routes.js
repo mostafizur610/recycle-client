@@ -13,6 +13,7 @@ import MyWishlist from "../../Pages/Dashboard/MyWishlist/MyWishlist"
 import ReportedItems from "../../Pages/Dashboard/ReportedItems/ReportedItems"
 // import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard"
 import Home from "../../Pages/Home/Home/Home"
+import AdminLogin from "../../Pages/Login/Login/AdminLogin"
 import Login from "../../Pages/Login/Login/Login"
 import SellerLogin from "../../Pages/Login/SellerLogin/SellerLogin"
 import UserLogin from "../../Pages/Login/UserLogin/UserLogin"
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
             {
                 path: '/sellerSignup',
                 element: <SellerSignup></SellerSignup>
+            },
+            {
+                path: '/adminLogin',
+                element: <AdminLogin></AdminLogin>
             }
 
         ]

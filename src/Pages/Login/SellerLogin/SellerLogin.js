@@ -18,19 +18,37 @@ const SellerLogin = () => {
     const from = location.state?.from?.pathname || '/';
 
     const handleLogin = data => {
-        console.log(data);
         setLoginError('');
-        signInSeller(data.email, data.password)
-            .then(result => {
-                const user = result.user
-                console.log(user);
-                reset();
-                // setLoginUserEmail(data.email);
+        loginUser(data.email, data.password);
+    }
+
+    const loginUser = async (email, password) => {
+        const role = location.pathname.match('seller') ? 'seller' : '';
+        const user = { email, role };
+        fetch('http://localhost:5000/login', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
                 navigate(from, { replace: true });
+                signInSeller(email, password)
+                    .then(result => {
+                        const user = result.user
+                        reset();
+                        loginUser(user.email);
+                    })
+                    .catch(error => {
+                        setLoginError(error.message);
+                    })
+
+
             })
             .catch(error => {
-                console.error(error.message);
-                setLoginError(error.message);
+                setLoginError('User not found')
             })
     }
     return (

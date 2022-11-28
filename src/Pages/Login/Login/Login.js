@@ -24,6 +24,15 @@ const Login = () => {
                 </Link>
             </div>
 
+            <div className="form-control">
+                <Link to='/adminLogin'>
+                    <label className="label cursor-pointer gap-2">
+                        <span className="label-text text-lg">Admin</span>
+                        <input type="radio" name="radio-10" className="radio checked:bg-blue-500" />
+                    </label>
+                </Link>
+            </div>
+
 
         </div>
     );

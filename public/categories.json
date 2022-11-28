@@ -2,21 +2,159 @@
     {
         "id": 1,
         "name": "Asus",
-        "img": "https://i.ibb.co/2SmW0BY/image.png"
+        "img": "https://i.ibb.co/2SmW0BY/image.png",
+        "products": [
+            {
+                "p_name": "Monitor",
+                "p_img": "https://i.ibb.co/YDHmyC1/image.png",
+                "location": "Mirpur, dhaka",
+                "resale_price": 5000,
+                "original_price": 10000,
+                "year_of_use": 2.5,
+                "time_of_posted": "10.00am, 27-11-2022",
+                "seller_name": "Mostafiz"
+            },
+            {
+                "p_name": "GPU",
+                "p_img": "https://i.ibb.co/1mX4jJJ/image.png",
+                "location": "Mirpur, dhaka",
+                "resale_price": 6000,
+                "original_price": 12000,
+                "year_of_use": 2,
+                "time_of_posted": "10.30am, 27-11-2022",
+                "seller_name": "Soboz"
+            },
+            {
+                "p_name": "Motherboard",
+                "p_img": "https://i.ibb.co/zSMBRZ3/image.png",
+                "location": "Mirpur, dhaka",
+                "resale_price": 25000,
+                "original_price": 20000,
+                "year_of_use": 1,
+                "time_of_posted": "11.00am, 27-11-2022",
+                "seller_name": "Sojib"
+            },
+            {
+                "p_name": "Catching",
+                "p_img": "https://i.ibb.co/ZYmjCFT/image.png",
+                "location": "Mirpur, dhaka",
+                "resale_price": 3000,
+                "original_price": 6000,
+                "year_of_use": 2,
+                "time_of_posted": "1.00am, 27-11-2022",
+                "seller_name": "Mithun"
+            }
+        ]
     },
     {
         "id": 2,
         "name": "Samsung",
-        "img": "https://i.ibb.co/8mSWVCV/image.png"
+        "img": "https://i.ibb.co/8mSWVCV/image.png",
+        "products": [
+            {
+                "p_name": "Monitor",
+                "p_img": "https://i.ibb.co/Y3pNpg4/image.png",
+                "location": "Mirpur, dhaka",
+                "resale_price": 5000,
+                "original_price": 10000,
+                "year_of_use": 2.5,
+                "time_of_posted": "10.00am, 27-11-2022",
+                "seller_name": "Mostafiz"
+            },
+            {
+                "p_name": "SSD",
+                "p_img": "https://i.ibb.co/q7L8YtL/image.png",
+                "location": "Mirpur, dhaka",
+                "resale_price": 6000,
+                "original_price": 12000,
+                "year_of_use": 2,
+                "time_of_posted": "10.30am, 27-11-2022",
+                "seller_name": "Soboz"
+            },
+            {
+                "p_name": "Mouse",
+                "p_img": "https://i.ibb.co/myjzCRW/image.png",
+                "location": "Mirpur, dhaka",
+                "resale_price": 250,
+                "original_price": 500,
+                "year_of_use": 1,
+                "time_of_posted": "11.00am, 27-11-2022",
+                "seller_name": "Sojib"
+            }
+        ]
     },
     {
         "id": 3,
         "name": "Gigabite",
-        "img": "https://i.ibb.co/C5r2D0N/image.png"
+        "img": "https://i.ibb.co/C5r2D0N/image.png",
+        "products": [
+            {
+                "p_name": "Monitor",
+                "p_img": "https://i.ibb.co/zSxFkzn/image.png",
+                "location": "Mirpur, dhaka",
+                "resale_price": 20000,
+                "original_price": 50000,
+                "year_of_use": 2.5,
+                "time_of_posted": "10.00am, 27-11-2022",
+                "seller_name": "Mostafiz"
+            },
+            {
+                "p_name": "GPU",
+                "p_img": "https://i.ibb.co/vzLsqP9/image.png",
+                "location": "Mirpur, dhaka",
+                "resale_price": 6000,
+                "original_price": 12000,
+                "year_of_use": 2,
+                "time_of_posted": "10.30am, 27-11-2022",
+                "seller_name": "Soboz"
+            },
+            {
+                "p_name": "Motherboard",
+                "p_img": "https://i.ibb.co/4K1H6tM/image.png",
+                "location": "Mirpur, dhaka",
+                "resale_price": 25000,
+                "original_price": 20000,
+                "year_of_use": 1,
+                "time_of_posted": "11.00am, 27-11-2022",
+                "seller_name": "Sojib"
+            },
+            {
+                "p_name": "Catching",
+                "p_img": "https://i.ibb.co/TghtJH5/image.png",
+                "location": "Mirpur, dhaka",
+                "resale_price": 3000,
+                "original_price": 6000,
+                "year_of_use": 2,
+                "time_of_posted": "1.00am, 27-11-2022",
+                "seller_name": "Mithun"
+            }
+        ]
     },
     {
         "id": 4,
         "name": "Intel",
-        "img": "https://i.ibb.co/yPqtDjH/image.png"
+        "img": "https://i.ibb.co/yPqtDjH/image.png",
+        "products": [
+            {
+                "p_name": "CPU",
+                "p_img": "https://i.ibb.co/jyxwHjZ/image.png",
+                "location": "Mirpur, dhaka",
+                "resale_price": 50000,
+                "original_price": 30000,
+                "year_of_use": 2.5,
+                "time_of_posted": "10.00am, 27-11-2022",
+                "seller_name": "Salman"
+            },
+            {
+                "p_name": "GPU",
+                "p_img": "https://i.ibb.co/6b0nZ7d/image.png",
+                "location": "Mirpur, dhaka",
+                "resale_price": 12000,
+                "original_price": 42000,
+                "year_of_use": 2,
+                "time_of_posted": "10.30am, 27-11-2022",
+                "seller_name": "Soboz"
+            }
+        ]
     }
 ]

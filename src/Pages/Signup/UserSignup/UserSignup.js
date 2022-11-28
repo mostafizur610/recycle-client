@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 // import { FaGoogle } from 'react-icons/fa';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import useTitle from '../../../Hooks/useTitle';
 import SocialLogin from '../../shared/SocialLogin/SocialLogin';
@@ -12,7 +12,11 @@ const UserSignup = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const { createUserBuyer, updateUser } = useContext(AuthContext);
     const [signUpError, setSignUpError] = useState('');
+    // const [createdUserEmail, setCreatedUserEmail] = useState('')
+    // const [token] = useToken(createdUserEmail);
     const navigate = useNavigate();
+    const location = useLocation();
+    console.log(location);
 
     const handleSignUp = (data) => {
         console.log(data);
@@ -32,7 +36,7 @@ const UserSignup = () => {
                 updateUser(userInfo)
                     .then(() => {
                         navigate('/');
-                        // saveUser(data.name, data.email);
+                        saveUser(data.name, data.email);
                     })
                     .catch(err => console.error(err))
 
@@ -41,6 +45,24 @@ const UserSignup = () => {
                 console.error(error)
                 setSignUpError(error.message)
             });
+    }
+
+    const saveUser = (name, email) => {
+        const role = location.pathname.match('user') ? 'user' : '';
+        const user = { name, email, role };
+        console.log(user);
+        fetch('http://localhost:5000/signup', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log('data', data);
+                // setCreatedUserEmail(data.email);
+            })
     }
 
 

@@ -1,15 +1,14 @@
-import { useForm } from 'react-hook-form';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-// import { FaGoogle } from 'react-icons/fa';
 import { useContext, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
-import SocialLogin from '../../shared/SocialLogin/SocialLogin';
 import useTitle from '../../../Hooks/useTitle';
+// import { FaGoogle } from 'react-icons/fa';
 
-const UserLogin = () => {
-    useTitle('UserLogin');
+const AdminLogin = () => {
+    useTitle('Admin');
     const { handleSubmit, formState: { errors }, register, reset } = useForm();
-    const { signInUser } = useContext(AuthContext);
+    const { signInSeller } = useContext(AuthContext);
     const [loginError, setLoginError] = useState('');
 
     // redirect
@@ -21,11 +20,22 @@ const UserLogin = () => {
     const handleLogin = data => {
         console.log(data);
         setLoginError('');
-        loginUser(data.email, data.password);
+        signInSeller(data.email, data.password)
+            .then(result => {
+                const user = result.user
+                console.log(user);
+                reset();
+                loginUser(user.email);
+                // setLoginUserEmail(data.email);
+            })
+            .catch(error => {
+                console.error(error.message);
+                setLoginError(error.message);
+            })
     }
 
-    const loginUser = async (email, password) => {
-        const role = location.pathname.match('user') ? 'user' : '';
+    const loginUser = async (email) => {
+        const role = location.pathname.match('admin') ? 'admin' : '';
         const user = { email, role };
         console.log(user);
         fetch('http://localhost:5000/login', {
@@ -37,27 +47,13 @@ const UserLogin = () => {
         })
             .then(res => res.json())
             .then(data => {
-                // console.log('data', data);
+                console.log('data', data);
                 navigate(from, { replace: true });
                 // setCreatedUserEmail(data.email);
-                // setCurrentUser();
-
-                signInUser(email, password)
-                    .then(result => {
-                        const user = result.user
-                        console.log(user);
-                        reset();
-                        loginUser(user.email)
-                        // setLoginUserEmail(data.email);
-                        // navigate(from, { replace: true });
-                    })
-                    .catch(error => {
-                        // console.error(error.message);
-                        setLoginError(error.message);
-                    })
 
             })
             .catch(error => {
+                // console.log(error);
                 setLoginError('User not found')
             })
     }
@@ -65,7 +61,7 @@ const UserLogin = () => {
         <div>
             <div className='h-[800px] flex justify-center items-center'>
                 <div className='w-96 p-8'>
-                    <h2 className='text-3xl text-center mb-6'>Users Login !!</h2>
+                    <h2 className='text-3xl text-center mb-6'>Admin !!</h2>
 
                     <form onSubmit={handleSubmit(handleLogin)}>
 
@@ -93,14 +89,12 @@ const UserLogin = () => {
                             }
                         </div>
                     </form>
-
-                    <p>New to exDesktop Accessories<Link className='text-secondary ml-1' to='/userSignup'>Create new account</Link></p>
-                    <div className='divider'>OR</div>
-                    <SocialLogin />
                 </div>
             </div>
         </div>
     );
 };
 
-export default UserLogin;
+
+
+export default AdminLogin;
