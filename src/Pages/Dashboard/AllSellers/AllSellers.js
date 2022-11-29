@@ -11,6 +11,8 @@ const AllSellers = () => {
                         <tr>
                             <th></th>
                             <th>Name</th>
+                            <th>Email</th>
+                            <th>Verify</th>
                             <th>Delete</th>
                         </tr>
                     </thead>
@@ -19,28 +21,17 @@ const AllSellers = () => {
                         <tr>
                             <th>1</th>
                             <td>Cy Ganderton</td>
+                            <td>m@gmail.com</td>
+                            <td><button className='btn btn-accent btn-outline'>
+                                verify
+                            </button></td>
                             <td><button className="btn btn-circle btn-outline">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
                             </button></td>
 
                         </tr>
 
-                        <tr className="active">
-                            <th>2</th>
-                            <td>Hart Hagerty</td>
-                            <td><button className="btn btn-circle btn-outline">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
-                            </button></td>
 
-                        </tr>
-
-                        <tr>
-                            <th>3</th>
-                            <td>Brice Swyre</td>
-                            <td><button className="btn btn-circle btn-outline">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
-                            </button></td>
-                        </tr>
                     </tbody>
                 </table>
             </div>

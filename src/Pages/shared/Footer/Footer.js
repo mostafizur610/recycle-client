@@ -24,7 +24,7 @@ const Footer = () => {
                 </div>
             </div>
             <div>
-                <p>Copyright © 2022 - All right reserved by exDesktop Accessories</p>
+                <p>Copyright © 2022 - All right reserved by Recycle Accessories</p>
             </div>
         </footer>
     );

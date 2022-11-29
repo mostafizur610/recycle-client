@@ -34,12 +34,16 @@ const router = createBrowserRouter([
                 element: <Home></Home>
             },
             {
-                path: '/category/:id',
+                path: '/category',
                 element: <CategoriesDetails></CategoriesDetails>,
                 loader: ({ params }) => {
-                    console.log(params);
                     fetch(`http://localhost:5000/category/${params.id}`)
                 }
+
+                // loader: async ({ params }) => {
+                //     // console.log(params);
+                //     return fetch(`http://localhost:5000/category/${params.id}`)
+                // }
             },
             {
                 path: '/blogs',
