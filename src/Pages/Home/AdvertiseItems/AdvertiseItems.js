@@ -5,7 +5,7 @@ const AdvertiseItems = () => {
     const [advertisedProducts, setAdvertisedProducts] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/product/advertised', {
+        fetch('https://exdesktop-accessories-server.vercel.app/product/advertised', {
             headers: {
                 'content-type': 'application/json',
             }

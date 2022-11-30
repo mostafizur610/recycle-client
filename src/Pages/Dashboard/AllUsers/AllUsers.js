@@ -9,14 +9,14 @@ const AllUsers = () => {
     // const { data: users = [], refetch } = useQuery({
     //     queryKey: ['users'],
     //     queryFn: async () => {
-    //         const res = await fetch('http://localhost:5000/users?type=user');
+    //         const res = await fetch('https://exdesktop-accessories-server.vercel.app/users?type=user');
     //         const data = await res.json();
     //         return data;
     //     }
     // });
 
     useEffect(() => {
-        fetch('http://localhost:5000/users?type=user')
+        fetch('https://exdesktop-accessories-server.vercel.app/users?type=user')
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -25,7 +25,7 @@ const AllUsers = () => {
     }, [])
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/user/${id}`, {
+        fetch(`https://exdesktop-accessories-server.vercel.app/user/${id}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json'

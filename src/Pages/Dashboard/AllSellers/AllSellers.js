@@ -6,7 +6,7 @@ const AllSellers = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/users?type=seller')
+        fetch('https://exdesktop-accessories-server.vercel.app/users?type=seller')
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -15,7 +15,7 @@ const AllSellers = () => {
     }, [])
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/user/${id}`, {
+        fetch(`https://exdesktop-accessories-server.vercel.app/user/${id}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json'

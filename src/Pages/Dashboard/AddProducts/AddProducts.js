@@ -25,7 +25,7 @@ const AddProducts = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        fetch(`http://localhost:5000/category/${product.category_id}/product`, {
+        fetch(`https://exdesktop-accessories-server.vercel.app/category/${product.category_id}/product`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',

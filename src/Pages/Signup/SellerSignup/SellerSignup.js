@@ -47,7 +47,7 @@ const SellerSignup = () => {
         const role = location.pathname.match('seller') ? 'seller' : '';
         const user = { name, email, role };
         console.log(user);
-        fetch('http://localhost:5000/signup', {
+        fetch('https://exdesktop-accessories-server.vercel.app/signup', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

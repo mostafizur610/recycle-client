@@ -26,7 +26,7 @@ const UserLogin = () => {
         const role = location.pathname.match('user') ? 'user' : '';
         const user = { email, role };
         console.log(user);
-        fetch('http://localhost:5000/login', {
+        fetch('https://exdesktop-accessories-server.vercel.app/login', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

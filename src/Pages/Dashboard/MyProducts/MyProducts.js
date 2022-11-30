@@ -11,7 +11,7 @@ const MyProducts = () => {
     }, []);
 
     const onAdvertised = (cateId, productId) => {
-        fetch(`http://localhost:5000/category/${cateId}/product/${productId}/advertise`, {
+        fetch(`https://exdesktop-accessories-server.vercel.app/category/${cateId}/product/${productId}/advertise`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -29,7 +29,7 @@ const MyProducts = () => {
     }
 
     const handleDelete = (cateId, productId) => {
-        fetch(`http://localhost:5000/category/${cateId}/product/${productId}`, {
+        fetch(`https://exdesktop-accessories-server.vercel.app/category/${cateId}/product/${productId}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json'
@@ -50,7 +50,7 @@ const MyProducts = () => {
     }
 
     const fetchData = () => {
-        fetch('http://localhost:5000/product', {
+        fetch('https://exdesktop-accessories-server.vercel.app/product', {
             headers: {
                 'content-type': 'application/json',
                 'Authorization': `Bearer ${seller.token}`

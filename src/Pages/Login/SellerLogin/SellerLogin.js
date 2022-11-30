@@ -24,7 +24,7 @@ const SellerLogin = () => {
     const loginUser = async (email, password) => {
         const role = location.pathname.match('seller') ? 'seller' : '';
         const user = { email, role };
-        fetch('http://localhost:5000/login', {
+        fetch('https://exdesktop-accessories-server.vercel.app/login', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

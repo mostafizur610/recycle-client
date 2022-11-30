@@ -22,7 +22,7 @@ const SocialLogin = () => {
                     email: user.email,
                     role: 'user'
                 }
-                fetch('http://localhost:5000/google', {
+                fetch('https://exdesktop-accessories-server.vercel.app/google', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
