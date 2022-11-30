@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 
 const AddProducts = () => {
@@ -36,6 +37,7 @@ const AddProducts = () => {
             .then(data => {
                 console.log(data);
                 if (data) {
+                    toast.success('User Created Successfully')
                     navigate('/dashboard/myProducts');
                 }
             })
