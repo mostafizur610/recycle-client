@@ -1,21 +1,36 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import BookingModal from '../BookingModal/BookingModal';
 
-const CategoriesDetailsCard = () => {
-    // const { p_name } = details;
+const CategoriesDetailsCard = ({ category }) => {
+    const [data, setData] = useState({});
+
+    const clickHandle = (category) => {
+        console.log(category);
+        setData(category);
+    }
     return (
         <div>
-            {/* <p>{products.length}</p> */}
-            <div className="card card-side bg-base-100 shadow-xl">
-                <figure><img src="https://placeimg.com/200/280/arch" alt="Movie" /></figure>
-                <div className="card-body">
-                    <h2 className="card-title">yututyuttyu</h2>
-                    <p>Click the button to watch on Jetflix app.</p>
-                    <div className="card-actions justify-end">
-                        <label htmlFor="booking-modal" className="btn btn-primary">Book Now</label>
+
+            {category && (
+                <div className="card card-side bg-base-100 shadow-xl border my-2">
+                    <figure><img className='w-72' src={category.p_img} alt="" /></figure>
+                    <div className="card-body">
+                        <h2 className="card-title">{category.p_name}</h2>
+                        <p>Original Price: {category.original_price}</p>
+                        <p>Resale Price: {category.resale_price}</p>
+                        <p>About : {category.description}</p>
+                        <p>Review: {category.condition_type}</p>
+                        <p>Seller: {category.seller_name}</p>
+                        <p>Contact: {category.phone_number}</p>
+                        <p>Location: {category.location}</p>
+                        <p>Post: {category.time_of_posted}</p>
+                        <div className="card-actions justify-end">
+                            <label onClick={() => clickHandle(category)} htmlFor="booking-modal" className="btn btn-primary">Book Now</label>
+                        </div>
                     </div>
                 </div>
-            </div>
+            )}
+            <BookingModal category={data}></BookingModal>
         </div>
     );
 };

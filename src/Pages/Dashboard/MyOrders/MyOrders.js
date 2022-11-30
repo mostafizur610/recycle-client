@@ -4,7 +4,7 @@ import img from '../../../assets/slider/s2.jpg'
 const MyOrders = () => {
     return (
         <div>
-            <h1>My Orders is Coming soon</h1>
+            <h1 className='my-8 text-3xl text-center'>My Orders</h1>
 
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
