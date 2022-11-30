@@ -6,13 +6,11 @@ import Blogs from "../../Pages/Blogs/Blogs"
 import AddProducts from "../../Pages/Dashboard/AddProducts/AddProducts"
 import AllSellers from "../../Pages/Dashboard/AllSellers/AllSellers"
 import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers"
-import MyBuyers from "../../Pages/Dashboard/MyBuyers/MyBuyers"
 import MyOrders from "../../Pages/Dashboard/MyOrders/MyOrders"
 import MyProducts from "../../Pages/Dashboard/MyProducts/MyProducts"
 import MyWishlist from "../../Pages/Dashboard/MyWishlist/MyWishlist"
 import ReportedItems from "../../Pages/Dashboard/ReportedItems/ReportedItems"
 import CategoriesDetails from "../../Pages/Home/Categories/CategoriesDetails"
-// import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard"
 import Home from "../../Pages/Home/Home/Home"
 import AdminLogin from "../../Pages/Login/Login/AdminLogin"
 import Login from "../../Pages/Login/Login/Login"
@@ -39,11 +37,6 @@ const router = createBrowserRouter([
                 loader: ({ params }) => {
                     return fetch(`http://localhost:5000/category/${params.id}`)
                 }
-
-                // loader: async ({ params }) => {
-                //     // console.log(params);
-                //     return fetch(`http://localhost:5000/category/${params.id}`)
-                // }
             },
             {
                 path: '/blogs',
@@ -118,9 +111,6 @@ const router = createBrowserRouter([
             }
         ]
     },
-
-
-
 
     // 404 route
     {

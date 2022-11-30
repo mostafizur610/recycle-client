@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 const AdvertiseItems = () => {
     const [advertisedProducts, setAdvertisedProducts] = useState([]);
+    // const { _id } = category;
 
 
     useEffect(() => {

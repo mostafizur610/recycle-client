@@ -13,7 +13,6 @@ const Categories = () => {
             })
     }, [])
 
-
     return (
         <div>
             <h2 className='text-center text-3xl text text-white bg-blue-700 p-4 mx-16 rounded-lg'>The Brand we provided</h2>

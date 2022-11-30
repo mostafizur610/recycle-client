@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import BookingModal from '../BookingModal/BookingModal';
+import React from 'react';
 
-const CategoriesDetailsCard = ({ category }) => {
-    const [data, setData] = useState({});
+
+const CategoriesDetailsCard = ({ category, setData }) => {
+    // const [data, setData] = useState({});
 
     const clickHandle = (category) => {
         console.log(category);
         setData(category);
     }
+
     return (
         <div>
-
             {category && (
                 <div className="card card-side bg-base-100 shadow-xl border my-2">
                     <figure><img className='w-72' src={category.p_img} alt="" /></figure>
@@ -25,12 +25,12 @@ const CategoriesDetailsCard = ({ category }) => {
                         <p>Location: {category.location}</p>
                         <p>Post: {category.time_of_posted}</p>
                         <div className="card-actions justify-end">
-                            <label onClick={() => clickHandle(category)} htmlFor="booking-modal" className="btn btn-primary">Book Now</label>
+                            <label onClick={() => setData(category)} htmlFor="booking-modal" className="btn btn-primary">Book Now</label>
                         </div>
                     </div>
                 </div>
             )}
-            <BookingModal category={data}></BookingModal>
+
         </div>
     );
 };

@@ -5,7 +5,6 @@ import { useContext, useState } from 'react';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import SocialLogin from '../../shared/SocialLogin/SocialLogin';
 import useTitle from '../../../Hooks/useTitle';
-import useToken from '../../../Hooks/useToken';
 
 const UserLogin = () => {
     useTitle('UserLogin');
@@ -13,21 +12,11 @@ const UserLogin = () => {
     const { signInUser } = useContext(AuthContext);
     const [loginError, setLoginError] = useState('');
 
-    // all users set
-    // const [loginUserEmail, setLoginUserEmail] = useState('');
-    // const [token] = useToken(loginUserEmail);
-
     // redirect
     const location = useLocation();
     const navigate = useNavigate();
     console.log(location);
     const from = location.state?.from?.pathname || '/';
-
-    // all users
-    // if (token) {
-    //     navigate(from, { replace: true });
-    // }
-
 
     const handleLogin = data => {
         setLoginError('');
@@ -51,7 +40,6 @@ const UserLogin = () => {
                     .then(result => {
                         reset();
                         localStorage.setItem('user', JSON.stringify(data));
-                        // setLoginUserEmail(data.email);
                         navigate(from, { replace: true });
                     })
                     .catch(error => {

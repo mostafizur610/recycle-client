@@ -1,22 +1,21 @@
-import { useQuery } from '@tanstack/react-query';
-import React, { useContext, useEffect, useState } from 'react';
-import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+// import { useQuery } from '@tanstack/react-query';
+import React, { useEffect, useState } from 'react';
 
 const AllUsers = () => {
-    // const { users } = useContext(AuthContext);
-    const { users, setUsers } = useState('');
+    const [users, setUsers] = useState([]);
 
-    // const { data: users = [] } = useQuery({
+    // react query
+    // const { data: users = [], refetch } = useQuery({
     //     queryKey: ['users'],
     //     queryFn: async () => {
-    //         const res = await fetch('http://localhost:5000/users');
+    //         const res = await fetch('http://localhost:5000/users?type=user');
     //         const data = await res.json();
     //         return data;
     //     }
     // });
 
     useEffect(() => {
-        fetch('http://localhost:5000/users')
+        fetch('http://localhost:5000/users?type=user')
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -53,22 +52,6 @@ const AllUsers = () => {
 
                         }
 
-                        {/* <tr className="active">
-                            <th>2</th>
-                            <td>Hart Hagerty</td>
-                            <td><button className="btn btn-circle btn-outline">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
-                            </button></td>
-
-                        </tr>
-
-                        <tr>
-                            <th>3</th>
-                            <td>Brice Swyre</td>
-                            <td><button className="btn btn-circle btn-outline">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
-                            </button></td>
-                        </tr> */}
                     </tbody>
                 </table>
             </div>

@@ -26,17 +26,17 @@ const MyProducts = () => {
                 'content-type': 'application/json',
                 'Authorization': `Bearer ${seller.token}`
             },
-            // body: JSON.stringify(product)
+
         })
             .then(res => res.json())
             .then(data => {
-                if (data) {
-                    // navigate('/dashboard/myProducts');
-                }
+                console.log(data);
             })
             .catch(error => {
+
             })
     }
+
     return (
         <div className='mt-12'>
             <h2 className='my-6 text-center'>My Products</h2>
