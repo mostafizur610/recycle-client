@@ -1,5 +1,6 @@
 // import { useQuery } from '@tanstack/react-query';
 import React, { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 
 const AllUsers = () => {
     const [users, setUsers] = useState([]);
@@ -23,6 +24,28 @@ const AllUsers = () => {
             })
     }, [])
 
+    const handleDelete = (id) => {
+        fetch(`http://localhost:5000/user/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'content-type': 'application/json'
+            }
+
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.deletedCount === 1) {
+                    toast.success('Deleted successfully');
+                    const remaining = users.filter(user => user._id !== id);
+                    setUsers(remaining);
+                }
+            })
+            .catch(error => {
+
+            })
+
+    }
 
 
     return (
@@ -44,7 +67,7 @@ const AllUsers = () => {
                             users.map((user, i) => <tr key={user._id}>
                                 <th>{i + 1}</th>
                                 <td>{user.name}</td>
-                                <td><button className="btn btn-circle btn-outline">
+                                <td><button onClick={() => handleDelete(user._id)} className="btn btn-circle btn-outline">
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
                                 </button></td>
 
