@@ -1,22 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { FaTrash } from 'react-icons/fa';
+import toast from 'react-hot-toast';
 
 const MyProducts = () => {
     const seller = JSON.parse(localStorage.getItem('user'));
     const [categoriesProducts, setCategoriesProducts] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/product', {
-            headers: {
-                'content-type': 'application/json',
-                'Authorization': `Bearer ${seller.token}`
-            }
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                setCategoriesProducts(data)
-            })
+        fetchData();
     }, []);
 
     const onAdvertised = (cateId, productId) => {
@@ -34,6 +25,41 @@ const MyProducts = () => {
             })
             .catch(error => {
 
+            })
+    }
+
+    const handleDelete = (cateId, productId) => {
+        fetch(`http://localhost:5000/category/${cateId}/product/${productId}`, {
+            method: 'DELETE',
+            headers: {
+                'content-type': 'application/json'
+
+            },
+
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                toast.success('Deleted successfully');
+                fetchData()
+
+            })
+            .catch(error => {
+
+            })
+    }
+
+    const fetchData = () => {
+        fetch('http://localhost:5000/product', {
+            headers: {
+                'content-type': 'application/json',
+                'Authorization': `Bearer ${seller.token}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                setCategoriesProducts(data)
             })
     }
 
@@ -61,7 +87,7 @@ const MyProducts = () => {
                                 categoriesProduct.products.map(product => (
                                     <tr>
                                         <th>
-                                            <button className='btn btn-outline btn-primary'><FaTrash></FaTrash></button>
+                                            <button onClick={() => handleDelete(categoriesProduct._id, product._id)} className='btn btn-outline btn-primary'><FaTrash></FaTrash></button>
                                         </th>
                                         <td>
                                             {product.p_name}

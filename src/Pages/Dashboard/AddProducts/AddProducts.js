@@ -54,10 +54,10 @@ const AddProducts = () => {
                     <input disabled type="text" placeholder="Seller Name" name="seller_name" className="input input-bordered input-sm w-full max-w-xs" value={product.seller_name} />
                     <select name="category_id" onChange={handleChange} className="select select-bordered">
                         <option disabled selected>Select category</option>
-                        <option value="6386e2ff131d0506585fbb18">Asus</option>
-                        <option value="6386e2ff131d0506585fbb19">Samsung</option>
-                        <option value="6386e2ff131d0506585fbb1a">Gigabite</option>
-                        <option value="6386e2ff131d0506585fbb1b">Intel</option>
+                        <option value="63878fa0131d0506585fbb21">Asus</option>
+                        <option value="63878fa0131d0506585fbb22">Samsung</option>
+                        <option value="63878fa0131d0506585fbb23">Gigabite</option>
+                        <option value="63878fa0131d0506585fbb24">Intel</option>
                     </select>
                     <input type="text" placeholder="Product Name" name="p_name" className="input input-bordered input-sm w-full max-w-xs" value={product.p_name} onChange={handleChange} />
                     <input type="text" placeholder="Image" name="p_img" className="input input-bordered input-sm w-full max-w-xs" value={product.p_img} onChange={handleChange} />
