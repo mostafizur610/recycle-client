@@ -3,7 +3,6 @@ import { useForm } from 'react-hook-form';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import useTitle from '../../../Hooks/useTitle';
-// import { FaGoogle } from 'react-icons/fa';
 
 const AdminLogin = () => {
     useTitle('Admin');
@@ -73,7 +72,6 @@ const AdminLogin = () => {
                             {errors.password && <p className='text-red-600'>{errors.password?.message}</p>}
                             <label className="label"> <span className="label-text">Forgot Password?</span> </label>
                         </div>
-
 
                         <input className='btn btn-accent w-full text-white' value='Login' type="submit" />
                         <div>

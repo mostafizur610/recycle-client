@@ -3,7 +3,6 @@ import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import useTitle from '../../../Hooks/useTitle';
-// import { FaGoogle } from 'react-icons/fa';
 
 const SellerLogin = () => {
     useTitle('SellersLogin');
@@ -84,8 +83,6 @@ const SellerLogin = () => {
                     </form>
 
                     <p>New to exDesktop Accessories<Link className='text-secondary ml-1' to='/sellerSignup'>Create new account</Link></p>
-                    {/* <div className='divider'>OR</div>
-                    <button className='btn btn-outline w-full gap-2'>CONTINUE WITH <FaGoogle /></button> */}
                 </div>
             </div>
         </div>

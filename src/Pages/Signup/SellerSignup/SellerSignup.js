@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-// import { FaGoogle } from 'react-icons/fa';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import useTitle from '../../../Hooks/useTitle';
@@ -105,8 +104,6 @@ const SellerSignup = () => {
                     </form>
 
                     <p>Already have an account?<Link className='text-secondary ml-1' to='/sellerLogin'>Please Login</Link></p>
-                    {/* <div className='divider'>OR</div>
-                    <button className='btn btn-outline w-full gap-2'>CONTINUE WITH <FaGoogle /></button> */}
                 </div>
             </div>
         </div>

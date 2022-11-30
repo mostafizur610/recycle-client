@@ -44,10 +44,6 @@ const AuthProvider = ({ children }) => {
         return updateProfile(auth.currentUser, sellerInfo);
     }
 
-    // const setCurrentUser = () => {
-    //     return setUser(authUser);
-    // }
-
     const logOut = () => {
         setLoading(true);
         return signOut(auth);

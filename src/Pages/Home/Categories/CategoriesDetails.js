@@ -21,7 +21,10 @@ const CategoriesDetails = () => {
             </div>
             {
                 data &&
-                <BookingModal data={data}></BookingModal>
+                <BookingModal
+                    data={data}
+                    setData={setData}
+                ></BookingModal>
             }
         </div>
     );

@@ -1,13 +1,6 @@
 import React from 'react';
 
-
 const CategoriesDetailsCard = ({ category, setData }) => {
-    // const [data, setData] = useState({});
-
-    const clickHandle = (category) => {
-        console.log(category);
-        setData(category);
-    }
 
     return (
         <div>

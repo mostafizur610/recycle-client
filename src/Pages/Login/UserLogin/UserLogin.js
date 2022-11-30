@@ -1,6 +1,5 @@
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-// import { FaGoogle } from 'react-icons/fa';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import SocialLogin from '../../shared/SocialLogin/SocialLogin';

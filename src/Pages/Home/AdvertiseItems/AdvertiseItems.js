@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-// import BookingModal from '../BookingModal/BookingModal';
 
 const AdvertiseItems = () => {
     const [advertisedProducts, setAdvertisedProducts] = useState([]);
-    // const { _id } = category;
-
 
     useEffect(() => {
         fetch('http://localhost:5000/product/advertised', {
@@ -20,15 +17,12 @@ const AdvertiseItems = () => {
             })
     }, []);
 
-
-
     return (
         <div className='p-12'>
             <h1 className='text-center text-4xl text-accent'>Most recent products</h1>
             <div className='mt-12 flex flex-wrap gap-5 border-spacing-8 text-center text-white text-3xl'>
                 {advertisedProducts && advertisedProducts.map(advertisedProduct => (
                     advertisedProduct.products.map(product => (
-
                         <>
                             <div>
                                 <img className='h-32 w-48' src={product.p_img} alt="" />
@@ -40,7 +34,6 @@ const AdvertiseItems = () => {
                     ))
                 ))
                 }
-                {/* <BookingModal category={data}></BookingModal> */}
             </div>
 
         </div>
