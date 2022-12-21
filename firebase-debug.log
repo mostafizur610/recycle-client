@@ -1,0 +1,26 @@
+[debug] [2022-12-21T12:20:42.207Z] ----------------------------------------------------------------------
+[debug] [2022-12-21T12:20:42.212Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\User\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2022-12-21T12:20:42.214Z] CLI Version:   11.16.0
+[debug] [2022-12-21T12:20:42.214Z] Platform:      win32
+[debug] [2022-12-21T12:20:42.214Z] Node Version:  v16.14.0
+[debug] [2022-12-21T12:20:42.216Z] Time:          Wed Dec 21 2022 18:20:42 GMT+0600 (Bangladesh Standard Time)
+[debug] [2022-12-21T12:20:42.217Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-12-21T12:20:42.411Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-12-21T12:20:42.412Z] > authorizing via signed-in user (mostafizr.cse@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\project\milestone-12\assignment-12\exdesktop-accessories-client
+
+Before we get started, keep in mind:
+
+  * You are currently outside your home directory
+  * You are initializing within an existing Firebase project directory
+
