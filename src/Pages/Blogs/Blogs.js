@@ -13,7 +13,7 @@ const Blogs = () => {
                 <div className="collapse-title bg-success text-white text-xl">
                     What are the different ways to manage a state in a React application?
                 </div>
-                <div className="collapse-content bg-primary text-white-content peer-checked:bg-secondary peer-checked:text-secondary-content">
+                <div className="collapse-content bg-primary text-white-content peer-checked:bg-white peer-checked:text-secondary-content">
                     <p>The Four Kinds of React State to Manage
                         When we talk about state in our applications, it’s important to be clear about what types of state actually matter.
 
@@ -61,7 +61,7 @@ const Blogs = () => {
                 <div className="collapse-title bg-success text-white text-xl">
                     How does prototypical inheritance work?
                 </div>
-                <div className="collapse-content bg-primary text-white-content peer-checked:bg-secondary peer-checked:text-secondary-content">
+                <div className="collapse-content bg-primary text-white-content peer-checked:bg-white peer-checked:text-secondary-content">
                     <p>The Prototypal Inheritance is a feature in javascript used to add methods and properties in objects. It is a method by which an object can inherit the properties and methods of another object. Traditionally, in order to get and set the [[Prototype]] of an object, we use Object.getPrototypeOf and Object.</p> <br />
                     <img src={faq2} alt="" />
                 </div>
@@ -72,7 +72,7 @@ const Blogs = () => {
                 <div className="collapse-title bg-success text-white text-xl">
                     What is a unit test? Why should we write unit tests?
                 </div>
-                <div className="collapse-content bg-primary text-white-content peer-checked:bg-secondary peer-checked:text-secondary-content">
+                <div className="collapse-content bg-primary text-white-content peer-checked:bg-white peer-checked:text-secondary-content">
                     <p>Unit Testing is a type of software testing where individual units or components of a software are tested. The purpose is to validate that each unit of the software code performs as expected. Unit Testing is done during the development (coding phase) of an application by the developers. Unit Tests isolate a section of code and verify its correctness. A unit may be an individual function, method, procedure, module, or object. <br />
 
                         In SDLC, STLC, V Model, Unit testing is first level of testing done before integration testing. Unit testing is a WhiteBox testing technique that is usually performed by the developer. Though, in a practical world due to time crunch or reluctance of developers to tests, QA engineers also do unit testing.</p> <br />
@@ -85,7 +85,7 @@ const Blogs = () => {
                 <div className="collapse-title bg-success text-white text-xl">
                     React vs. Angular vs. Vue?
                 </div>
-                <div className="collapse-content bg-primary text-white-content peer-checked:bg-secondary peer-checked:text-secondary-content">
+                <div className="collapse-content bg-primary text-white-content peer-checked:bg-white peer-checked:text-secondary-content">
                     <p>Vue provides higher customizability and hence is easier to learn than Angular or React. Further, Vue has an overlap with Angular and React with respect to their functionality like the use of components. Hence, the transition to Vue from either of the two is an easy option.</p> <br />
                     <img src={faq4} alt="" />
                 </div>
