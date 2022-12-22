@@ -3,6 +3,7 @@ import { FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import img from '../../../assets/n.png'
+import './Navigationbar.css'
 
 const NavigationBar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -43,7 +44,7 @@ const NavigationBar = () => {
 
     return (
         <div className="navbar bg-accent border-secondary text-white sticky">
-            <div className="flex-1 lg: ml-24 flex-wrap">
+            <div className="flex-1 lg: ml-24 flex-wrap name-section">
                 {/* <div> */}
                 <span className="normal-case text-4xl text-white"> <Link to='/' ><img className='w-48 h-24' src={img} alt="" /></Link></span> <br />
                 <span className='text-blue-600'> <br />Resale Desktop Accessories</span>
