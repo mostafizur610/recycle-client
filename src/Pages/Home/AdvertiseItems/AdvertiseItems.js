@@ -19,7 +19,7 @@ const AdvertiseItems = () => {
 
     return (
         <div className='p-12'>
-            <h1 className='text-center text-4xl text-accent'>Most recent products</h1>
+            <h1 className='text-center text-4xl text-accent'>Most recent products Ad. For sale</h1>
             <div className='mt-12 flex flex-wrap gap-5 border-spacing-8 text-center text-white text-3xl'>
                 {advertisedProducts && advertisedProducts.map(advertisedProduct => (
                     advertisedProduct.products.map(product => (
