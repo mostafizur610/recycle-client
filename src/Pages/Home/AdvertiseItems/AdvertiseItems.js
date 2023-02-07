@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import img from "../../../assets/c.jpg"
 
 const AdvertiseItems = () => {
     const [advertisedProducts, setAdvertisedProducts] = useState([]);
@@ -19,6 +20,17 @@ const AdvertiseItems = () => {
 
     return (
         <div>
+            <div className="hero min-h-screen bg-base">
+                <div className="hero-content flex-col lg:flex-row-reverse">
+                    <img className='rounded-3xl shadow-xl' src={img} alt='' />
+                    <div>
+                        <h1 className="text-5xl font-bold">If you're not buying recycled products, you're not really recycling!</h1>
+                        <p className="py-6">It makes a big difference to recycle. It makes a big difference to use recycled products. It makes a big difference to reuse things, to not use the paper cup and each time you do, that's a victory..</p>
+                        <button className="btn btn-primary">Let's Change the World</button>
+                    </div>
+                </div>
+            </div>
+
             <div className='flex justify-center'>
                 <ul className="steps steps-vertical lg:steps-horizontal">
                     <li className="step step-primary">Login</li>
