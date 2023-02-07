@@ -80,6 +80,10 @@ const AdminLogin = () => {
                             }
                         </div>
                     </form>
+                    <div className='text-sm mt-3'>
+                        <p><span className='text-red-600'>Email:</span> admin@gmail.com
+                            <br />  <span className='text-red-600'>Password:</span> Aa@123</p>
+                    </div>
                 </div>
             </div>
         </div>
