@@ -18,7 +18,7 @@ const NavigationBar = () => {
         {
             user?.uid ?
                 <li>
-                    <Link to='/dashboard'>Dashboard</Link>
+                    {/* <Link to='/dashboard'>Dashboard</Link> */}
                     <li className="tooltip tooltip-open tooltip-bottom flex" data-tip={user?.displayName}>
                         <span> {
                             user?.photoURL ?
@@ -31,12 +31,12 @@ const NavigationBar = () => {
                 <li tabIndex={0}>
                     <Link to='/login'>
                         SignIn
-                        <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
+                        {/* <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg> */}
                     </Link>
-                    <ul className="p-2 bg-accent">
+                    {/* <ul className="p-2 bg-accent">
                         <li><Link to='/userLogin'>User SignIn</Link></li>
                         <li><Link to='/sellerLogin'>Seller SignIn</Link></li>
-                    </ul>
+                    </ul> */}
                 </li>
         }
     </>
@@ -53,6 +53,7 @@ const NavigationBar = () => {
             <div className="flex-none">
                 <ul className="menu menu-horizontal p-0">
                     <li><Link to='/'>Home</Link></li>
+                    <li><Link to='/dashboard'>Dashboard</Link></li>
                     <li><Link to='/blogs'>Blog</Link></li>
                     {
                         menuItems

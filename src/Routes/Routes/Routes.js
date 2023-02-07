@@ -77,7 +77,8 @@ const router = createBrowserRouter([
             // buyers
             {
                 path: '/dashboard/myOrders',
-                element: <UserPrivateRoutes><MyOrders></MyOrders></UserPrivateRoutes>
+                // element: <UserPrivateRoutes><MyOrders></MyOrders></UserPrivateRoutes>
+                element: <MyOrders></MyOrders>
             },
             {
                 path: '/dashboard/myWishlist',
@@ -86,11 +87,13 @@ const router = createBrowserRouter([
             // sellers
             {
                 path: '/dashboard/addProducts',
-                element: <SellerPrivateRoutes><AddProducts></AddProducts></SellerPrivateRoutes>
+                // element: <SellerPrivateRoutes><AddProducts></AddProducts></SellerPrivateRoutes>
+                element: <AddProducts></AddProducts>
             },
             {
                 path: '/dashboard/myProducts',
-                element: <SellerPrivateRoutes><MyProducts></MyProducts></SellerPrivateRoutes>
+                // element: <SellerPrivateRoutes><MyProducts></MyProducts></SellerPrivateRoutes>
+                element: <MyProducts></MyProducts>
             },
             {
                 path: '/dashboard/myBuyers',
