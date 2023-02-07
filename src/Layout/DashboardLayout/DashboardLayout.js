@@ -16,6 +16,7 @@ const DashboardLayout = () => {
     return (
         <div>
             <NavigationBar />
+            <div className='text-center mt-4 text-yellow-600'>Please register or Login:- as a seller or a user</div>
             <div className="drawer drawer-mobile">
                 <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content">
